@@ -29,7 +29,7 @@ CREATE TABLE "challenge" (
     "showstopper_handshake" BOOLEAN   NOT NULL,
     "favorite" BOOLEAN   NOT NULL,
     "least_favorite" BOOLEAN   NOT NULL,
-    "result_id" INT   NOT NULL,
+    "result" VARCHAR   NOT NULL,
     CONSTRAINT "pk_challenge" PRIMARY KEY (
         "challenge_id"
      )
@@ -69,14 +69,6 @@ CREATE TABLE "rating" (
     "bbc_iplayer_requests" INT   NOT NULL,
     CONSTRAINT "pk_rating" PRIMARY KEY (
         "rating_id"
-     )
-);
-
-CREATE TABLE "result" (
-    "result_id" INT   NOT NULL,
-    "result" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_result" PRIMARY KEY (
-        "result_id"
      )
 );
 
