@@ -29,7 +29,7 @@ CREATE TABLE "challenge" (
     "showstopper_handshake" BOOLEAN   NOT NULL,
     "favorite" BOOLEAN   NOT NULL,
     "least_favorite" BOOLEAN   NOT NULL,
-    "result_id" INT   NOT NULL,
+    "result" VARCHAR   NOT NULL,
     CONSTRAINT "pk_challenge" PRIMARY KEY (
         "challenge_id"
      )
@@ -72,14 +72,6 @@ CREATE TABLE "rating" (
      )
 );
 
-CREATE TABLE "result" (
-    "result_id" INT   NOT NULL,
-    "result" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_result" PRIMARY KEY (
-        "result_id"
-     )
-);
-
 CREATE TABLE "judge" (
     "judge_id" INT   NOT NULL,
     "judge_name" VARCHAR   NOT NULL,
@@ -103,9 +95,6 @@ REFERENCES "episode" ("episode_id");
 
 ALTER TABLE "challenge" ADD CONSTRAINT "fk_challenge_baker_id" FOREIGN KEY("baker_id")
 REFERENCES "baker" ("baker_id");
-
-ALTER TABLE "challenge" ADD CONSTRAINT "fk_challenge_result_id" FOREIGN KEY("result_id")
-REFERENCES "result" ("result_id");
 
 ALTER TABLE "series" ADD CONSTRAINT "fk_series_judge1" FOREIGN KEY("judge1")
 REFERENCES "judge" ("judge_id");
